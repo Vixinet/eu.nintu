@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<services>
+
+	<service name="backend.version"/>
+
+	<service name="media.add">
+		<param name="binary" type="binary" required="true" />
+		<param name="text" type="string:128" required="true" />
+	</service>
+
+	<service name="media.get">
+		<param name="media" type="integer" required="false" />
+	</service>
+
+	<service name="media.diss">
+		<param name="media" type="integer" required="true" />
+	</service>
+
+	<service name="media.envy">
+		<param name="media" type="integer" required="true" />
+	</service>
+
+	<service name="media.vote">
+		<param name="media" type="integer" required="true" />
+		<param name="action" type="integer" required="true">
+			<option value="1">Envy</option>
+			<option value="-1">Diss</option>
+		</param>
+	</service>
+
+	<service name="feed.get" />
+
+	<service name="top.get" />
+
+	<service name="profile.set">
+		<param name="name" type="string:32" required="true" />
+	</service>
+	
+	<service name="comments.get">
+		<param name="media" type="integer" required="true" />
+	</service>
+
+	<service name="comment.add">
+		<param name="media" type="integer" required="true" />
+		<param name="text" type="string:255" required="true" />
+	</service>
+	
+</services>

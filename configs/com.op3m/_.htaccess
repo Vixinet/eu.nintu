@@ -1,0 +1,5 @@
+Options +FollowSymlinks
+RewriteEngine on
+
+RewriteRule ^([a-zA-Z]+)\/([a-zA-Z.]+)$	/var/www/server.php?servlet=$1&service=$2 [L]
+RewriteRule ^media:([0-9A-Z]{8}):([a-z0-9_]{30}(_thumb)?)$	/var/www/binaries/media/nint/$1/$2.jpg [L]

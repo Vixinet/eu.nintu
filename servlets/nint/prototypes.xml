@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<services>
+	
+	<!--
+		Exemple :
+		<service name="(string)" version="(iso date)">
+			<param 	name="(string)"
+							type="integer|float|string|boolean|date(?:[int]|binary)"
+							required="true|false">
+				<option value="(integer)">(string)</option>
+			</param>
+		</service>
+	-->
+
+	<service name="generate.uid">
+		<param name="age" type="int" required="true" />
+		<param name="firstname" type="string" required="true" />
+		<param name="lastname"  type="string" required="false" />
+	</service>
+
+	<service name="feedback.send">
+		<param name="feedback" type="string" required="true" />
+	</service>
+
+	<service name="report.send">
+		<param name="json" type="string" required="true" />
+		<param name="report" type="string" required="true" />
+	</service>
+
+	<service name="backend.version"/>
+
+	<service name="backend.metadata"/>
+
+	<service name="matches.get">
+		<param name="interest" type="integer" required="false" />
+	</service>
+
+	<service name="profile.set">
+		<param name="name" type="string:32" required="false" />
+		<param name="title" type="string:32" required="false" />
+		<param name="hometown" type="string:32" required="false" />
+		<param name="description" type="string:256" required="false" />
+		<param name="relationship" type="integer" required="false">
+			<option value="0">Not defined</option>
+			<option value="1">Single</option>
+			<option value="2">Couple</option>
+		</param>
+		<param name="age" type="integer" required="false" />
+		<param name="age_min" type="integer" required="false" />
+		<param name="age_max" type="integer" required="false" />
+		<param name="gender" type="integer" required="false">
+			<option value="1">Male</option>
+			<option value="2">Female</option>
+		</param>
+		<param name="gender_display" type="integer" required="false">
+			<option value="1">Male</option>
+			<option value="2">Female</option>
+			<option value="3">Both</option>
+		</param>
+		<param name="position" type="string:32" required="false" />
+		<param name="interests" type="string" required="false" />
+		<param name="online" type="boolean" required="false" />
+		<param name="completed" type="boolean" required="false" />
+		<param name="apns" type="string:128" required="false" />
+	</service>
+
+	<service name="profile.get">
+		<param name="uid" type="string:8" required="false" />
+	</service>
+
+	<service name="profile.picture.set">
+		<param name="media" type="integer" required="true" />
+	</service>
+
+	<service name="profile.interest.toggle">
+		<param name="interest" type="integer" required="true" />
+	</service>
+
+	<service name="media.get">
+		<param name="uid" type="string:8" required="false" />
+	</service>
+
+	<service name="media.add">
+		<param name="binary" type="binary" required="true" />
+		<param name="default" type="boolean" required="false" />
+	</service>
+
+	<service name="media.delete">
+		<param name="media" type="integer" required="true" />
+	</service>
+
+	<service name="request.send">
+		<param name="uid" type="string:8" required="true" />
+	</service>
+
+	<service name="request.accept">
+		<param name="id" type="integer" required="true" />
+	</service>
+
+	<service name="request.deny">
+		<param name="id" type="integer" required="true" />
+	</service>
+
+	<service name="requests.get">
+		<param name="page" type="integer" required="false" />
+	</service>
+
+	<service name="friends.get">
+		<param name="page" type="integer" required="false" />
+	</service>
+
+	<service name="friend.delete">
+		<param name="page" type="integer" required="false" />
+	</service>
+
+
+	<service name="chatbox.get">
+		<param name="page" type="integer" required="false" />
+		<param name="from" type="integer" required="false" />
+	</service>
+	<service name="chatbox.add">
+		<param name="title" type="string:32" required="false" />
+		<param name="users" type="string" required="true" />
+	</service>
+	<service name="chatbox.rename">
+		<param name="chatbox" type="integer" required="true" />
+		<param name="title" type="string:32" required="true" />
+	</service>
+	<service name="chatbox.mute">
+		<param name="chatbox" type="integer" required="true" />
+	</service>
+	<service name="chatbox.leave">
+		<param name="chatbox" type="integer" required="true" />
+	</service>
+	<service name="chatbox.clear">
+		<param name="chatbox" type="integer" required="true" />
+	</service>
+	<service name="chatbox.disconnect">
+		<param name="chatbox" type="integer" required="true" />
+	</service>
+	
+	<service name="chatbox.people.add">
+		<param name="chatbox" type="integer" required="true" />
+		<param name="users" type="string" required="true" />
+	</service>
+	<service name="chatbox.people.to.add">
+		<param name="chatbox" type="integer" required="true" />
+	</service>
+	<service name="chatbox.people.get">
+		<param name="chatbox" type="integer" required="true" />
+	</service>
+	<service name="chatbox.people.set">
+		<param name="chatbox" type="integer" required="true" />
+		<param name="position" type="string:32" required="true" />
+	</service>
+	
+	<service name="chatbox.msg.add">
+		<param name="chatbox" type="integer" required="true" />
+		<param name="message" type="string" required="true" />
+	</service>
+	<service name="chatbox.msg.edit">
+		<param name="id" type="integer" required="true" />
+		<param name="message" type="string" required="true" />
+	</service>
+	<service name="chatbox.msg.delete">
+		<param name="id" type="integer" required="true" />
+	</service>
+	
+	<service name="chatboxes.get">
+		<param name="page" type="integer" required="false" />
+	</service>
+
+</services>

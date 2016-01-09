@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<services>
+	
+	<service name="user.create">
+		<param name="email"    required="true" type="string:256" />
+		<param name="password" required="true" type="string:256" />
+	</service>
+	
+	<service name="token.get">
+		<param name="email"    required="true" type="string:256" />
+		<param name="password" required="true" type="string:256" />
+	</service>
+	
+	<service name="token.destroy">
+		<param name="token" required="true" type="string:256" />
+	</service>
+	
+	<service name="token.verify">
+		<param name="token" required="true" type="string:256" />
+	</service>
+	
+	<service name="password.hash">
+		<param name="password" required="true" type="string:256" />
+	</service>
+	
+	<service name="password.retrieve">
+		<param name="email"    required="true" type="string:256" />
+	</service>
+	
+	<service name="password.redefine">
+		<param name="email"    required="true" type="string:256" />
+		<param name="password" required="true" type="string:256" />
+		<param name="code"     required="true" type="string:8" />
+	</service>
+
+	<service name="password.change">
+		<param name="email"        required="true" type="string:256" />
+		<param name="password_new" required="true" type="string:256" />
+		<param name="password_old" required="true" type="string:256" />
+	</service>
+	
+</services>
